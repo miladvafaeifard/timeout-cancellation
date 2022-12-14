@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog</title>
+  <title>Blogs</title>
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
@@ -14,9 +14,12 @@
 </head>
 
 <body>
-  <main>
-    <button onclick="loadPosts()">Load</button>
-    <button onclick="cancel()">Cancel</button>
+  <main class="wrapper">
+    <div class="controls">
+      <button class="btn btn-load" onclick="loadPosts()">Load</button>
+      <button class="btn btn-cancel" onclick="cancel()">Cancel</button>
+      <button class="btn btn-cancel" onclick="reset()">Reset</button>
+    </div>
     <div class="posts-list"></div>
   </main>
   <script src="./src/js/main.js"></script>

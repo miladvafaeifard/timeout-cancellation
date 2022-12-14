@@ -7,26 +7,64 @@ html,
 }
 
 :root {
-  --red: hsl(231, 72%, 52%);
+  --blue: hsl(231, 72%, 52%);
   --grayishBlue: rgba(0, 0, 0, 0.1);
+}
+
+.wrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.controls {
+  padding: 10px;
 }
 
 .posts-list {
   display: flex;
   flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .posts-list article {
   position: relative;
-  flex: 1 1 20%;
+  flex: 1 1 30%;
   padding: 5px;
   text-align: center;
-  border-top: 3px solid var(--red);
+  border-top: 3px solid var(--blue);
   border-radius: 5px;
   box-shadow: 0px 2px 5px 0px var(--grayishBlue);
   margin: 10px;
 }
 
+.btn {
+  padding: 5px 19px;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn:active {
+  opacity: 1;
+}
+
+.btn-cancel {
+  background-color: transparent;
+  color: red;
+}
+
+.btn-cancel:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn-load {
+  background-color: var(--blue);
+}
 .posts-list article:hover {
   top: -10px;
   cursor: pointer;

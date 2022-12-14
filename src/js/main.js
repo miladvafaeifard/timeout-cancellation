@@ -1,6 +1,8 @@
 let requestCancellation;
 let timeoutHandle;
 
+const [postsList] = document.getElementsByClassName("posts-list");
+
 async function timeout(delay, signal) {
   return new Promise((resolve, reject) => {
     timeoutHandle = setTimeout(() => {
@@ -10,7 +12,7 @@ async function timeout(delay, signal) {
 
     signal?.addEventListener("abort", (e) => {
       clearTimeout(timeoutHandle);
-      reject(new Error("aborted"));
+      reject(new Error("Aborted"));
     });
   });
 }
@@ -31,7 +33,7 @@ async function loadPosts() {
     makeRequest(url),
     timeout(2000, requestCancellation.signal),
   ]);
-  const [postsList] = document.getElementsByClassName("posts-list");
+
   postsData.forEach((post) => {
     const article = document.createElement("article");
     const header = document.createElement("h2");
@@ -44,8 +46,17 @@ async function loadPosts() {
     article.appendChild(paragraph);
     postsList.appendChild(article);
   });
+
+  if(!requestCancellation.signal.aborted) {
+    requestCancellation.signal?.removeEventListener("abort", () => {});
+  }
+
 }
 
 function cancel() {
   requestCancellation.abort();
+}
+
+function reset() {
+  postsList.innerHTML = '';
 }
