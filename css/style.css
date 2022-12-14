@@ -1,0 +1,33 @@
+body,
+html,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --red: hsl(231, 72%, 52%);
+  --grayishBlue: rgba(0, 0, 0, 0.1);
+}
+
+.posts-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.posts-list article {
+  position: relative;
+  flex: 1 1 20%;
+  padding: 5px;
+  text-align: center;
+  border-top: 3px solid var(--red);
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px 0px var(--grayishBlue);
+  margin: 10px;
+}
+
+.posts-list article:hover {
+  top: -10px;
+  cursor: pointer;
+}
