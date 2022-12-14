@@ -65,7 +65,13 @@ html,
 .btn-load {
   background-color: var(--blue);
 }
+
 .posts-list article:hover {
   top: -10px;
   cursor: pointer;
+}
+
+.reports {
+  padding: 20px;
+  font-size: 20px;
 }

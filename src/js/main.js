@@ -2,16 +2,19 @@ let requestCancellation;
 let timeoutHandle;
 
 const [postsList] = document.getElementsByClassName("posts-list");
+const [reports] = document.getElementsByClassName("reports");
 
 async function timeout(delay, signal) {
   return new Promise((resolve, reject) => {
     timeoutHandle = setTimeout(() => {
       requestCancellation.abort();
+      reports.textContent = `Request aborted as it took longer than ${delay}ms`;
       throw new Error(`Request aborted as it took longer than ${delay}ms`);
     }, delay);
 
     signal?.addEventListener("abort", (e) => {
       clearTimeout(timeoutHandle);
+      reports.textContent = 'The user cancelled loading posts';
       reject(new Error("Aborted"));
     });
   });
@@ -58,5 +61,6 @@ function cancel() {
 }
 
 function reset() {
+  reports.textContent = '';
   postsList.innerHTML = '';
 }
